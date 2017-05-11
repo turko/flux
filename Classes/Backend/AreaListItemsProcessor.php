@@ -90,6 +90,7 @@ class AreaListItemsProcessor {
 	public function getContentAreasDefinedInContentElement($uid) {
 		$uid = (integer) $uid;
 		$record = $this->recordService->getSingle('tt_content', '*', $uid);
+                \TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL('tt_content', $record);
 		/** @var $providers ProviderInterface[] */
 		$providers = $this->fluxService->resolveConfigurationProviders('tt_content', NULL, $record);
 		$columns = array();
